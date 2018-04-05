@@ -1,5 +1,6 @@
 import React from 'react'
-class Data_structure extends React.Component{
+import KonwledgePoint from './KonwledgePoint';
+class DataStructure extends React.Component{
     constructor(props){
         super(props)
     }
@@ -84,4 +85,4 @@ class Data_structure extends React.Component{
     }
 }
 
-export default Data_structure
+export default DataStructure

@@ -1,0 +1,22 @@
+html,body{
+    padding:0;
+    height: 100%;
+    margin: 0;
+}
+#app{
+    height: 100%;
+}
+.app-active{
+    color: green;
+    border-bottom: .01rem solid green;
+    box-sizing: border-box;
+}
+body{
+    font-size: .12rem;
+}
+/* a:link {color: black}	未访问的链接 */
+a:hover {
+    color: orange;
+    border-bottom: .01rem solid orange;
+    box-sizing: border-box;    
+}	/* 鼠标移动到链接上 */

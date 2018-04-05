@@ -1,23 +1,44 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import './css/style.css' 
+import AppHeader from './components/navigation/Navigation'
+import Home from './components/routes/Home'
+import ArticleList from './components/routes/ArticleList'
+import rem from './rem/rem'
+rem(13.66);
+// <DataStructure/>
 
-import DataStructure from './components/data_structure'
+const css = {
+    box:{
+        display:'flex',
+        flexDirection:'column',
+        height:'100%'
+    }
+}
 
-class App extends React.Component{
+class App extends React.Component {
     constructor(){
         super()
     }
     render(){
         return (
-            <div>
-                <DataStructure/>
+            <div style={css.box}>
+                <AppHeader/>
+                <Switch>
+                <Redirect path="/" component={Home} to="/home" exact></Redirect>
+                <Route path="/home" component={Home}></Route>
+                <Route path="/list" component={ArticleList}></Route>
+                </Switch>
             </div>
         )
     }
 }
 
 ReactDom.render(
-    <App/>
+    <Router>
+        <Route path="/" component={App}></Route>  
+    </Router>
     ,
     document.getElementById('app')
 )
