@@ -8,6 +8,16 @@ if(isMobile) {
     class LinkBtn extends React.Component{
         constructor(props){
             super(props)
+            let normal = Object.assign({},this.props.style)
+            let activeCss = {
+                color: 'green',
+                borderBottom:'.01rem green solid',
+            }
+            const active = Object.assign(normal,activeCss)
+            this.state={
+                normal:this.props.style,
+                active
+            }
         }
         handleTouchEnd(event){
              event.preventDefault()
@@ -16,7 +26,7 @@ if(isMobile) {
         }
         render(){
             return(
-                <div className={ window.location.pathname===this.props.to ? 'app-active' : '' } style={this.props.style} onTouchEnd={this.handleTouchEnd.bind(this)}>{this.props.children}</div>
+                <div style={ window.location.pathname===this.props.to ? this.state.active : this.state.normal } onTouchEnd={this.handleTouchEnd.bind(this)}>{this.props.children}</div>
             )
         }
      }
@@ -25,6 +35,16 @@ if(isMobile) {
     class LinkBtn extends React.Component{
         constructor(props){
             super(props)
+            let normal = Object.assign({},this.props.style)
+            let activeCss = {
+                color: 'green',
+                borderBottom:'.01rem green solid',
+            }
+            const active = Object.assign(normal,activeCss)
+            this.state={
+                normal:this.props.style,
+                active
+            }
         }
         handleClick(event){
             event.preventDefault()
@@ -33,7 +53,7 @@ if(isMobile) {
         }
         render(){
             return(
-                <div className={ window.location.pathname===this.props.to ? 'app-active' : '' } style={this.props.style} onClick={this.handleClick.bind(this)}>{this.props.children}</div>
+                <div style={ window.location.pathname===this.props.to ? this.state.active : this.state.normal }  onClick={this.handleClick.bind(this)}>{this.props.children}</div>
             )
         }
      }

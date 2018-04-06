@@ -6,10 +6,6 @@ html,body{
 #app{
     height: 100%;
 }
-.app-active{
-    color: green;
-    border-bottom: .01rem solid green;
-}
 body{
     font-size: .12rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif,Arial,'Microsoft YaHei'

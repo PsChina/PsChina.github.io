@@ -7,7 +7,6 @@ const css = {
         display:'flex',
         width:'100%',
         flex:1,
-        borderBottom:'.01rem #CCC solid',
         boxSizing:'border-box',
         color:'#CCC'
     },
@@ -22,6 +21,7 @@ const css = {
         fontWeight:'bold',
         cursor:'pointer',
         boxSizing:'border-box',
+        borderBottom:'.01rem #CCC solid',
     }
 }
 
