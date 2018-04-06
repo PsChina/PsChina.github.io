@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
+import LinkBtn from './LinkBtn'
+import isMobile from '../../is/mobile'
 const css = {
     navBox:{
         display:'flex',
@@ -17,7 +18,9 @@ const css = {
         justifyContent:'center',
         alignItems:'center',
         textDecoration:'none',
-        fontSize:'.3rem'
+        fontSize: isMobile ? '.5rem':'.25rem',
+        cursor:'pointer',
+        boxSizing:'border-box',
     }
 }
 
@@ -29,8 +32,8 @@ class appNav extends React.Component{
     render(){
         return (
             <div style={css.navBox}>
-                 <NavLink style={css.link} activeClassName="app-active" to="/home">主页</NavLink> 
-                 <NavLink style={css.link} activeClassName="app-active" to="/list">列表</NavLink>
+                 <LinkBtn style={css.link} to="/home">主页</LinkBtn> 
+                 <LinkBtn style={css.link} to="/list">列表</LinkBtn>
             </div>
         )
     }

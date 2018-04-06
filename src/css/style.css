@@ -9,7 +9,6 @@ html,body{
 .app-active{
     color: green;
     border-bottom: .01rem solid green;
-    box-sizing: border-box;
 }
 body{
     font-size: .12rem;
