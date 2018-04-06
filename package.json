@@ -20,6 +20,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --mode development --history-api-fallback",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "build":"webpack --mode production"
   }
 }

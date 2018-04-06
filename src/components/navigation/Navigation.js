@@ -18,7 +18,8 @@ const css = {
         justifyContent:'center',
         alignItems:'center',
         textDecoration:'none',
-        fontSize: isMobile ? '.5rem':'.25rem',
+        fontSize: isMobile ? '.16rem':'.25rem',
+        fontWeight:'bold',
         cursor:'pointer',
         boxSizing:'border-box',
     }
@@ -28,12 +29,16 @@ const css = {
 class appNav extends React.Component{
     constructor(props){
         super(props)
+        this.state={
+            navBox:css.navBox,
+            link:css.link
+        }
     }
     render(){
         return (
-            <div style={css.navBox}>
-                 <LinkBtn style={css.link} to="/home">主页</LinkBtn> 
-                 <LinkBtn style={css.link} to="/list">列表</LinkBtn>
+            <div style={this.state.navBox}>
+                 <LinkBtn style={this.state.link} to="/home">主页</LinkBtn> 
+                 <LinkBtn style={this.state.link} to="/list">列表</LinkBtn>
             </div>
         )
     }

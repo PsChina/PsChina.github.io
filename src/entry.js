@@ -6,7 +6,13 @@ import AppHeader from './components/navigation/Navigation'
 import Home from './components/routes/Home'
 import ArticleList from './components/routes/ArticleList'
 import rem from './rem/rem'
-rem(13.66);
+import isMobile from './is/mobile'
+if(isMobile){
+    rem(3.2);
+}else{
+    rem(13.66);
+}
+
 // <DataStructure/>
 
 const css = {
