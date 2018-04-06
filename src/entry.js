@@ -9,6 +9,10 @@ import rem from './rem/rem'
 import isMobile from './is/mobile'
 if(isMobile){
     rem(3.2);
+    document.ontouchmove = function(e){ // 阻止向下翻页时 网页向下滑
+        e.preventDefault()
+        e.stopPropagation()
+    }
 }else{
     rem(13.66);
 }
