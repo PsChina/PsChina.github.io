@@ -1,30 +1,51 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path')
+
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var path = require('path')
+
 module.exports = {
-    entry:path.resolve(__dirname,'src/entry.js'),
-    output:{
-        path:__dirname,
-        filename:'bundle.js'
+    entry: './src/entry.js',
+    output: {
+        path: path.resolve(__dirname),
+        filename: 'bundle.js'
     },
-    module:{
-        rules:[
-            { test:/.html$/,use:['html-loader'] },
-            { test:/.js$/,use:['babel-loader'] },
-            { test:/.css$/,use:['style-loader','css-loader'] },
-            { test:/.(png|jpg|gif|svg|eot|ttf|woff)$/,use:['url-loader'] }
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            minify: {
+                removeComments: true,//清除HTML注释
+                collapseWhitespace: true,//压缩HTML
+                removeEmptyAttributes: true,//删除所有空格作属性值 <input id="" /> ==> <input />
+                removeScriptTypeAttributes: true,//删除<script>的type="text/javascript"
+                removeStyleLinkTypeAttributes: true,//删除<style>和<link>的type="text/css"
+                minifyJS: true,//压缩页面JS
+                minifyCSS: true//压缩页面CSS
+            }
+        }),
+        new UglifyJsPlugin() // 压缩js
+    ],
+    module: {
+        rules: [
+            { test: /\.jsx?$/, use: [ {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/env', '@babel/react'],
+                }
+            } ] },
+            { test: /\.html$/, use: ['html-loader'] },
+            { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+            { test: /\.(scss|sass)$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+            { test: /\.(png|jpe?g|gif|svg|mp4|webm|ogg|mp3|wav|flac|aac|woff2?|eot|ttf|otf)$/, use: [ { 
+                loader: 'url-loader', 
+                options: {
+                    limit: 10000
+                } 
+            } ]}
         ]
     },
-    plugins:[
-        new HtmlWebpackPlugin({
-            template:path.resolve(__dirname,'src/index.html'),
-            output:__dirname,
-            filename:'index.html'
-        })
-    ],
-    devServer:{
-        port:8080,
-        host:'192.168.199.183',
-        contentBase:__dirname,
-        open:true
+    devServer: {
+        contentBase: __dirname,
+        port: 8080,
+        open: 'http://localhost:8080'
     }
 }

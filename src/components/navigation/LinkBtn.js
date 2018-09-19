@@ -53,7 +53,7 @@ if(isMobile) {
         }
         render(){
             return(
-                <div style={ window.location.pathname===this.props.to ? this.state.active : this.state.normal }  onClick={this.handleClick.bind(this)}>{this.props.children}</div>
+                <div style={ window.location.hash.indexOf(this.props.to)!==-1 ? this.state.active : this.state.normal }  onClick={this.handleClick.bind(this)}>{this.props.children}</div>
             )
         }
      }

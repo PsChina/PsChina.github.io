@@ -10,7 +10,7 @@ class List extends React.Component{
            top:0,
            shuoldChange:0
        }
-
+       this.myRef = React.createRef();
    }
    handleStart(event){
        clearInterval( this.state.interval )
@@ -29,16 +29,16 @@ class List extends React.Component{
    }
    handleEnd(event){
         this.setState({
-            top:this.refs.content.scrollTop,
+            top:this.myRef.current.scrollTop,
         })
    }
    render(){
        return(
-           <div ref="content" 
-           onTouchStart={this.handleStart.bind(this)}
-           onTouchMove={this.handleMove.bind(this)} 
-           onTouchEnd={this.handleEnd.bind(this)}
-           style={{flex:9,overflowY:'scroll'}}
+           <div ref={this.myRef}
+                onTouchStart={this.handleStart.bind(this)}
+                onTouchMove={this.handleMove.bind(this)} 
+                onTouchEnd={this.handleEnd.bind(this)}
+                style={{flex:9,overflowY:'scroll'}}
            >    
                <DataStructure/>
            </div>

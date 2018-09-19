@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import './css/style.css' 
 import AppHeader from './components/navigation/Navigation'
 import Home from './components/routes/Home'
 import ArticleList from './components/routes/ArticleList'
 import rem from './rem/rem'
 import isMobile from './is/mobile'
+import ReactAppDemo from './ReactAppDemo/app.js'
 if(isMobile){
     rem(3.2);
     document.ontouchmove = function(e){ // 阻止向下翻页时 网页向下滑
@@ -30,15 +31,19 @@ const css = {
 class App extends React.Component {
     constructor(){
         super()
+        this.state={
+            showHeader:true
+        }
     }
     render(){
         return (
             <div style={css.box}>
                 <AppHeader/>
                 <Switch>
-                <Redirect path="/" component={Home} to="/home" exact></Redirect>
-                <Route path="/home" component={Home}></Route>
-                <Route path="/list" component={ArticleList}></Route>
+                    <Redirect path="/" component={Home} to="/home" exact></Redirect>
+                    <Route path="/home" component={Home}></Route>
+                    <Route path="/list" component={ArticleList}></Route>
+                    <Route path="/react/homework" component={ReactAppDemo}></Route>   
                 </Switch>
             </div>
         )
