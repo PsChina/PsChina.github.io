@@ -1,15 +1,11 @@
 html, body, p{
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 html{
     position: relative;
-}
-
-html, body{
     height: 100%;
 }
-
 .app{
     position: absolute;
     top: 0;
