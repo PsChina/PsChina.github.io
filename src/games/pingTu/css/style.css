@@ -1,0 +1,98 @@
+body,ul,li,img{
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+img {
+	display: block;
+}
+li {
+	list-style: none;
+}
+.mainGameBox{
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	background: white
+}
+.mainGame {
+	width: 402px;
+	height: 453px;
+	position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+	margin: auto;
+	background: green;
+}
+
+#box1 {
+	position: absolute; left: 0; top:0;
+}
+#box2 {
+	position: absolute;
+}
+#box3 {
+	position: absolute;
+}
+#box4 {
+	position: absolute;
+}
+#box5 {
+	position: absolute;
+}
+#box6 {
+	position: absolute;
+}
+#box7 {
+	position: absolute;
+}
+#box8 {
+	position: absolute;
+}
+#box9 {
+	position: absolute; left: 269px; top:302px;
+	display: none;
+}
+.boostLine1 {
+	width: 402px;
+	height: 1px;
+	background: black;
+	position: absolute; left: 0; top: 150px;
+}
+.boostLine2 {
+	width: 402px;
+	height: 1px;
+	background: black;
+	position: absolute; left: 0; top: 301px;
+}
+.boostLineA {
+	width: 1px;
+	height: 453px;
+	background: black;
+	position: absolute; left: 133px; top:0;
+}
+.boostLineB {
+	width: 1px;
+	height: 453px;
+	background: black;
+	position: absolute; left: 268px; top: 0;
+}
+.step {
+	width: auto;
+	height: 20px;
+	color: black;
+	position: absolute; left: 0; top:433px;
+}
+.reset {
+	width: auto;
+	height: 20px;
+	position: absolute; left: 360px; top:433px;
+}
+.reset a {
+	display: block;
+	width: auto;
+	height: 20px;
+	text-decoration: none;
+	color: yellowgreen;
+}
