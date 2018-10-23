@@ -1,3 +1,4 @@
+import isMobile from '../../../is/mobile.js'
 export default function(){
 	var successfullCoordinateArray = new Array(0,0,134,0,269,0,0,151,134,151,269,151,0,302,134,302);
 	var mainGameBoxUl = document.getElementsByTagName("ul");
@@ -107,5 +108,8 @@ export default function(){
 	// 禁止拖拽图片
 	document.body.ondragstart = function(){
 		return false;
+	}
+	if(isMobile){
+		
 	}
 }
