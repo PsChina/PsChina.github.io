@@ -10,6 +10,7 @@ import isMobile from './is/mobile'
 import ReactAppDemo from './ReactAppDemo/app.js'
 import TanChiShe from './games/tanChiShe/app.jsx'
 import PingTu from './games/pingTu/app.jsx'
+import Heart from './pages/Heart.jsx'
 
 if(isMobile){
     rem(3.2);
@@ -49,6 +50,7 @@ class App extends React.Component {
                     <Route path="/react/homework" component={ReactAppDemo} />
                     <Route path="/games/tcs" component={TanChiShe} />
                     <Route path="/games/pt" component={PingTu} />
+                    <Route path="/css/heart" component={Heart}/>
                 </Switch>
             </div>
         )
