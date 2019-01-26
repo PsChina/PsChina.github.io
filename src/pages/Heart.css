@@ -1,0 +1,76 @@
+.heart-demo-page{
+  z-index: 99;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: white;
+  overflow-y: scroll;
+  padding-left: 50px; 
+}
+.gaps{
+  height: 100px;
+}
+.setp1 {
+  width: 50px;
+  height: 100px;
+  background: red;
+}
+.setp2 {
+  width: 50px;
+  height: 100px;
+  background: red;
+  border-radius: 50% 50% 0 0
+}
+.setp3 {
+  position: relative;
+  left: 30px;
+}
+.setp3 > div {
+  transform: translate(-18px,0) rotate(-45deg);
+}
+.setp4{
+  position: relative;
+  left: 30px;
+  height: 120px;
+}
+.setp4 > div {
+ position: absolute;
+ left: 0;
+}
+.left{
+  transform: translate(-18px,0) rotate(-45deg);
+}
+.right{
+  transform: translate(18px,0) rotate(45deg);
+}
+/* 最终版 */
+.heart{
+  position: relative;
+  left: 30px;
+}
+.heart:after {
+  border-left: 25px solid red;
+  border-right: 25px solid red;
+  border-top: 50px solid red;
+  border-bottom: 50px solid red; 
+  border-radius: 50% 50% 0 0;
+  content: "";
+  position: absolute;    
+  top: 0;
+  left: 0;
+  transform: translate(-18px,0) rotate(-45deg);
+}
+.heart:before {
+  border-left: 25px solid red;
+  border-right: 25px solid red;
+  border-top: 50px solid red;
+  border-bottom: 50px solid red;
+  border-radius: 50% 50% 0 0;
+  content: "";
+  position: absolute;    
+  top: 0;
+  left: 0;
+  transform: translate(18px,0) rotate(45deg);
+}

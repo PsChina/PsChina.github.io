@@ -10,6 +10,7 @@ import isMobile from './is/mobile'
 import ReactAppDemo from './ReactAppDemo/app.js'
 import TanChiShe from './games/tanChiShe/app.jsx'
 import PingTu from './games/pingTu/app.jsx'
+import Heart from './pages/Heart.jsx'
 
 if (isMobile) {
   rem(3.2);
