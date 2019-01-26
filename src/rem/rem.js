@@ -1,6 +1,16 @@
-export default (value)=>{
-    document.documentElement.style.fontSize = window.screen.width / value + 'px'
-    window.onresize = ()=>{
-        document.documentElement.style.fontSize = window.screen.width / value + 'px'
+export default (value) => {
+
+    const size = `${window.screen.width / value}px`
+
+    document.documentElement.style.fontSize = size
+
+
+    window.onresize = () => {
+
+        const newSize = `${window.screen.width / value}px`
+
+        document.documentElement.style.fontSize = newSize
+
     }
+
 }
