@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import {HashRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 import './css/style.css'
-import AppHeader from './components/navigation/Navigation'
 import Home from './components/routes/Home'
 import ArticleList from './components/routes/ArticleList'
 import rem from './rem/rem'
@@ -59,7 +58,7 @@ class App extends React.Component {
           <Route path="/games/tcs" component={TanChiShe} />
           <Route path="/games/pt" component={PingTu} />
           <Route path="/css/heart" component={Heart}/>
-          {/* <Route path="/eee" component={LazyLoad}/> */}
+          <Route path="/js/lazyload" component={LazyLoad}/>
         </Switch>
       </div>)
   }
