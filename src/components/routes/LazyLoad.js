@@ -19,7 +19,7 @@ const images = []
 for (let i=0; i<10; i++) {
   images.push(
       <div style={css.imageBox} key={i}>
-        <img src-data={`https://pschina.github.io/src/assets${i}.jpg`} />
+        <img src-data={`https://pschina.github.io/src/assets/images/${i}.jpg`} />
       </div>
   )
 }
