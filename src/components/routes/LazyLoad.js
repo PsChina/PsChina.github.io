@@ -3,7 +3,6 @@ import React from 'react'
 const css = {
   box: {
     height: '400px',
-    with: '100%',
     border: '1px solid pink',
     overflowY: 'scroll',
   },
