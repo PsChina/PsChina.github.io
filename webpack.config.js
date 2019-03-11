@@ -6,11 +6,12 @@ var path = require('path')
 module.exports = {
     entry: './src/entry.js',
     output: {
-        path: path.resolve(__dirname),
+        path: path.join(__dirname,'./dist/'),
         filename: 'bundle.js'
     },
     plugins: [
         new HtmlWebpackPlugin({
+            filename: '../index.html',
             template: './src/index.html',
             minify: {
                 removeComments: true,//清除HTML注释
