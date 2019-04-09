@@ -46,7 +46,7 @@ module.exports = {
     },
     devServer: {
         contentBase: __dirname,
-        port: 8080,
-        open: 'http://localhost:8080'
+        port: 3000,
+        open: 'http://localhost:3000'
     }
 }

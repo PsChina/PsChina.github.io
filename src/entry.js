@@ -11,6 +11,7 @@ import TanChiShe from './games/tanChiShe/app.jsx'
 import PingTu from './games/pingTu/app.jsx'
 import Heart from './pages/Heart.jsx'
 import LazyLoad from './components/routes/LazyLoad.js'
+import WebEditor from './editor/index.jsx'
 
 if (isMobile) {
   rem(3.2);
@@ -31,6 +32,7 @@ const css = {
     height: '100%',
   },
 }
+
 /**
  * @class { App } 网站入口
  */
@@ -59,6 +61,7 @@ class App extends React.Component {
           <Route path="/games/pt" component={PingTu} />
           <Route path="/css/heart" component={Heart}/>
           <Route path="/js/lazyload" component={LazyLoad}/>
+          <Route path="/web/editor" component={WebEditor}/>
         </Switch>
       </div>)
   }
