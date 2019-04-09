@@ -1,9 +1,10 @@
+/* eslint-disable require-jsdoc */
 import React from 'react'
 class Editor extends React.Component {
-    constructor(props){
+    constructor(props) {
         super()
     }
-    render(){
+    render() {
         return <div>
             Hello
         </div>

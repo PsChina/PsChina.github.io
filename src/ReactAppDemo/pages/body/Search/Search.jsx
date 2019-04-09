@@ -1,53 +1,56 @@
+/* eslint-disable require-jsdoc */
+/* eslint-disable react/no-deprecated */
 import React from 'react'
 import './Search.scss'
 import Select from '../../../components/Select/Select.jsx'
 import FormCloemn from '../../../components/FormColumn/FormColumn.jsx'
+import PropTypes from 'prop-types'
 
-class Search extends React.Component{
-    constructor(){
+class Search extends React.Component {
+    constructor() {
         super()
         this.state = {
             placeholder: 'Search...',
             searchVal: '',
             currentType: '',
             currentSortWay: '',
-            staffTypes:[
+            staffTypes: [
                 '全部',
                 '主任',
                 '老师',
                 '学生',
                 '实习',
             ],
-            sortsOrders:[
+            sortsOrders: [
                 '身份',
                 '年龄升',
                 '年龄降',
-            ]
+            ],
         }
     }
-    componentWillReceiveProps(nextProps){
+    componentWillReceiveProps(nextProps) {
         this.setState({
             placeholder: nextProps.placeholder,
             searchVal: nextProps.searchVal,
             currentType: nextProps.currentType,
-            currentSortWay: nextProps.currentSortWay
+            currentSortWay: nextProps.currentSortWay,
         })
     }
-    render(){
-        return(
+    render() {
+        return (
             <div className="search-bar">
                 <input type="text" value={this.state.searchVal} placeholder={this.state.placeholder} onChange={this.props.onSearch}/>
                 <FormCloemn label="人员筛选：">
-                    <Select 
-                        options={this.state.staffTypes} 
-                        value={this.state.currentType} 
+                    <Select
+                        options={this.state.staffTypes}
+                        value={this.state.currentType}
                         onChange={this.props.changeSortType}
-                    /> 
+                    />
                 </FormCloemn>
                 <FormCloemn label="排列方式：">
-                    <Select 
-                        options={this.state.sortsOrders} 
-                        value={this.state.currentSortWay} 
+                    <Select
+                        options={this.state.sortsOrders}
+                        value={this.state.currentSortWay}
                         onChange={this.props.changeSortWay}
                     />
                 </FormCloemn>
@@ -56,7 +59,7 @@ class Search extends React.Component{
     }
 }
 
-function noop(){
+function noop() {
     return false
 }
 
@@ -69,5 +72,16 @@ Search.defaultProps={
     changeSortWay: noop,
     onSearch: noop,
 }
+
+Search.propTypes={
+    placeholder: PropTypes.string,
+    searchVal: PropTypes.string,
+    currentType: PropTypes.string,
+    currentSortWay: PropTypes.string,
+    changeSortType: PropTypes.func,
+    changeSortWay: PropTypes.func,
+    onSearch: PropTypes.func,
+}
+
 
 export default Search

@@ -1,18 +1,19 @@
+/* eslint-disable require-jsdoc */
 import React from 'react'
 import './Detail.scss'
 import Select from '../../components/Select/Select.jsx'
 import ForFormCloums from '../../components/ForFormColums/ForFormColums.jsx'
-
+import PropTypes from 'prop-types'
 class Detail extends React.Component {
-    constructor(){
+    constructor() {
         super()
         this.state={
-            item:{},
-            sexs:[
+            item: {},
+            sexs: [
                 '男',
-                '女'
+                '女',
             ],
-            staffTypes:[
+            staffTypes: [
                 '主任',
                 '老师',
                 '学生',
@@ -20,84 +21,85 @@ class Detail extends React.Component {
             ],
             data: [
                 {
-                    label : '姓名',
+                    label: '姓名',
                     className: 'form-column',
-                    render:()=>{
+                    render: ()=>{
                         return (
-                            <input type="text" value={this.state.item.name||''} onChange={ event=>this.changeItem(event,'name')}/>
+                            <input type="text" value={this.state.item.name||''} onChange={ (event)=>this.changeItem(event, 'name')}/>
                         )
-                    }
+                    },
                 },
                 {
-                    label : '年龄',
+                    label: '年龄',
                     className: 'form-column',
-                    render:()=>{
+                    render: ()=>{
                         return (
-                            <input type="text" value={this.state.item.age||''} onChange={ event=>this.changeItem(event,'age')}/>
+                            <input type="text" value={this.state.item.age||''} onChange={ (event)=>this.changeItem(event, 'age')}/>
                         )
-                    } 
+                    },
                 },
                 {
-                    label : '性别',
+                    label: '性别',
                     className: 'form-column',
-                    render:()=>{
+                    render: ()=>{
                         return (
-                            <Select 
+                            <Select
                                 value={this.state.item.sex}
                                 options={this.state.sexs}
-                                onChange={event=>this.changeItem(event,'sex')} 
+                                onChange={(event)=>this.changeItem(event, 'sex')}
                             />
                         )
-                    } 
+                    },
                 },
                 {
-                    label : '身份',
+                    label: '身份',
                     className: 'form-column',
-                    render:()=>{
+                    render: ()=>{
                         return (
-                            <Select 
+                            <Select
                                 value={this.state.item.id}
                                 options={this.state.staffTypes}
-                                onChange={event=>this.changeItem(event,'id')} 
+                                onChange={(event)=>this.changeItem(event, 'id')}
                             />
                         )
-                    } 
+                    },
                 },
                 {
-                    label : '个人描述',
+                    label: '个人描述',
                     className: 'form-column',
-                    render:()=>{
+                    render: ()=>{
                         return (
-                            <input type="text" value={this.state.item.descrip||''} onChange={ event=>this.changeItem(event,'descrip')}/>
+                            <input type="text" value={this.state.item.descrip||''} onChange={ (event)=>this.changeItem(event, 'descrip')}/>
                         )
-                    } 
-                }
-            ]
+                    },
+                },
+            ],
         }
     }
-    componentWillReceiveProps(nextProps){
+    // eslint-disable-next-line react/no-deprecated
+    componentWillReceiveProps(nextProps) {
         this.setState({
-            item:nextProps.item
+            item: nextProps.item,
         })
     }
-    changeItem(event,attr){
-        const item = Object.assign({},this.state.item) 
+    changeItem(event, attr) {
+        const item = Object.assign({}, this.state.item)
         item[attr] = event.target.value
         this.setState({
-            item
+            item,
         })
     }
-    save(){
-        this.props.save(this.state.item,this.props.item.name)
+    save() {
+        this.props.save(this.state.item, this.props.item.name)
         this.props.toggleDetail()
     }
-    cancel(){
+    cancel() {
         this.props.toggleDetail()
     }
-    render(){
-        return(
-            <div className="detail" style={{display:this.props.show?'flex':'none'}}>
-                <h3>点击'完成'保存修改,点击'关闭'放弃未保存修改并退出.</h3>
+    render() {
+        return (
+            <div className="detail" style={{display: this.props.show?'flex':'none'}}>
+                <h3>点击&#x27;完成&#x27;保存修改,点击&#x27;关闭&#x27;放弃未保存修改并退出.</h3>
                 <ForFormCloums data={this.state.data}/>
                 <div className="detail-footer">
                     <div className="footer-item" onClick={this.save.bind(this)}>完成</div>
@@ -107,13 +109,20 @@ class Detail extends React.Component {
         )
     }
 }
-function noop(){
+function noop() {
     return false
 }
 Detail.defaultProps={
     show: false,
-    item: {id:''},
+    item: {id: ''},
     save: noop,
-    toggleDetail: noop
+    toggleDetail: noop,
 }
+Detail.propTypes={
+    show: PropTypes.bool,
+    item: PropTypes.object,
+    save: PropTypes.func,
+    toggleDetail: PropTypes.func,
+}
+
 export default Detail

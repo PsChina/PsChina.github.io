@@ -1,13 +1,20 @@
 import React from 'react'
-const StaffTableHeader = props=>(
-        <thead>
-            <tr>
-                { props.titles.map(item=><th key={item}>{item}</th>) }
-            </tr>
-        </thead>
+import PropTypes from 'prop-types'
+
+const StaffTableHeader = (props)=>(
+    <thead>
+        <tr>
+            { props.titles.map((item)=><th key={item}>{item}</th>) }
+        </tr>
+    </thead>
 )
 
 StaffTableHeader.defaultProps={
-    titles:[]
+    titles: [],
 }
+
+StaffTableHeader.propTypes={
+    titles: PropTypes.array,
+}
+
 export default StaffTableHeader

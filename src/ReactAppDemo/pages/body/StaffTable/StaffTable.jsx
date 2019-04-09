@@ -1,11 +1,13 @@
+/* eslint-disable require-jsdoc */
 import React from 'react'
 import StaffTableHeader from './StaffTableHeader/StaffTableHeader.jsx'
 import StaffList from './StaffList/StaffList.jsx'
+import PropTypes from 'prop-types'
 
-const StaffTable = props=>(
+const StaffTable = (props)=>(
     <table>
         <StaffTableHeader titles={props.titles}/>
-        <StaffList 
+        <StaffList
             staffList={props.staffList}
             originList={props.originList}
             updata={props.updata}
@@ -15,17 +17,26 @@ const StaffTable = props=>(
     </table>
 )
 
-function noop (){
+function noop() {
     return false
 }
 
 StaffTable.defaultProps = {
-    titles:[],
-    originList:[],
-    staffList:[],
+    titles: [],
+    originList: [],
+    staffList: [],
     updata: noop,
     toggleDetail: noop,
-    updataCurrentStaff: noop
+    updataCurrentStaff: noop,
+}
+
+StaffTable.propTypes = {
+    titles: PropTypes.array,
+    staffList: PropTypes.array,
+    originList: PropTypes.array,
+    updata: PropTypes.func,
+    toggleDetail: PropTypes.func,
+    updataCurrentStaff: PropTypes.func,
 }
 
 export default StaffTable

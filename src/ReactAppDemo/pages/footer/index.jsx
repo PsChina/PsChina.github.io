@@ -1,22 +1,23 @@
+/* eslint-disable require-jsdoc */
 import React from 'react'
 import './index.scss'
 import Select from '../../components/Select/Select.jsx'
 import ForFormCloums from '../../components/ForFormColums/ForFormColums.jsx'
-
-class Footer extends React.Component{
-    constructor(){
+import PropTypes from 'prop-types'
+class Footer extends React.Component {
+    constructor() {
         super()
         this.state={
-            item:{
+            item: {
                 sex: '请选择',
-                id: '请选择'
+                id: '请选择',
             },
-            sexs:[
+            sexs: [
                 '男',
                 '女',
-                '请选择'
+                '请选择',
             ],
-            staffTypes:[
+            staffTypes: [
                 '主任',
                 '老师',
                 '学生',
@@ -25,81 +26,81 @@ class Footer extends React.Component{
             ],
             data: [
                 {
-                    label : '姓名',
+                    label: '姓名',
                     className: 'form-column',
-                    render:()=>{
+                    render: ()=>{
                         return (
-                            <input type="text" value={this.state.item.name||''} onChange={ event=>this.changeItem(event,'name')}/>
+                            <input type="text" value={this.state.item.name||''} onChange={ (event)=>this.changeItem(event, 'name')}/>
                         )
-                    }
+                    },
                 },
                 {
-                    label : '年龄',
+                    label: '年龄',
                     className: 'form-column',
-                    render:()=>{
+                    render: ()=>{
                         return (
-                            <input type="text" value={this.state.item.age||''} onChange={ event=>this.changeItem(event,'age')}/>
+                            <input type="text" value={this.state.item.age||''} onChange={ (event)=>this.changeItem(event, 'age')}/>
                         )
-                    } 
+                    },
                 },
                 {
-                    label : '性别',
+                    label: '性别',
                     className: 'form-column',
-                    render:()=>{
+                    render: ()=>{
                         return (
-                            <Select 
+                            <Select
                                 value={this.state.item.sex}
                                 options={this.state.sexs}
-                                onChange={event=>this.changeItem(event,'sex')} 
+                                onChange={(event)=>this.changeItem(event, 'sex')}
                             />
                         )
-                    } 
+                    },
                 },
                 {
-                    label : '身份',
+                    label: '身份',
                     className: 'form-column',
-                    render:()=>{
+                    render: ()=>{
                         return (
-                            <Select 
+                            <Select
                                 value={this.state.item.id}
                                 options={this.state.staffTypes}
-                                onChange={event=>this.changeItem(event,'id')} 
+                                onChange={(event)=>this.changeItem(event, 'id')}
                             />
                         )
-                    } 
+                    },
                 },
                 {
-                    label : '个人描述',
+                    label: '个人描述',
                     className: 'form-column',
-                    render:()=>{
+                    render: ()=>{
                         return (
-                            <input type="text" value={this.state.item.descrip||''} onChange={ event=>this.changeItem(event,'descrip')}/>
+                            <input type="text" value={this.state.item.descrip||''} onChange={ (event)=>this.changeItem(event, 'descrip')}/>
                         )
-                    } 
-                }
-            ]
+                    },
+                },
+            ],
         }
     }
-    changeItem(event,attr){
-        const item = Object.assign({},this.state.item) 
+    changeItem(event, attr) {
+        const item = Object.assign({}, this.state.item)
         item[attr] = event.target.value
         this.setState({
-            item
+            item,
         })
     }
-    addStaff(){
+    addStaff() {
         const originList = this.props.originList.concat()
         const staffList = this.props.staffList.concat()
-        const item = Object.assign({},this.state.item)
+        const item = Object.assign({}, this.state.item)
         originList.push(item)
         staffList.push(item)
         this.props.updata({
             originList,
-            staffList
+            staffList,
         })
     }
-    render(){
-        return(
+    render() {
+        return (
             <div className="app-footer">
                 <h3>人员新增</h3>
                 <ForFormCloums data={this.state.data}/>
@@ -112,9 +113,13 @@ class Footer extends React.Component{
 }
 
 Footer.defaultProps = {
-    updata:()=>undefined,
-    originList:[],
-    staffList:[]
+    updata: ()=>undefined,
+    originList: [],
+    staffList: [],
 }
-
+Footer.propTypes = {
+    updata: PropTypes.func,
+    originList: PropTypes.array,
+    staffList: PropTypes.array,
+}
 export default Footer
