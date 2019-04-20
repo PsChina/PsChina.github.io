@@ -12,6 +12,7 @@ import PingTu from './games/pingTu/app.jsx'
 import Heart from './pages/Heart.jsx'
 import LazyLoad from './components/routes/LazyLoad.js'
 import WebEditor from './editor/index.jsx'
+import Player from './player/player.jsx'
 
 if (isMobile) {
     rem(3.2);
@@ -62,6 +63,7 @@ class App extends React.Component {
                     <Route path="/css/heart" component={Heart}/>
                     <Route path="/js/lazyload" component={LazyLoad}/>
                     <Route path="/web/editor" component={WebEditor}/>
+                    <Route path="/web/player" component={Player}/>
                 </Switch>
             </div>)
     }

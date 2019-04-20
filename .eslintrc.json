@@ -22,6 +22,9 @@
         "semi":"off",
         "require-jsdoc":"warn",
         "indent":["error",4],
-        "max-len": ["error",150]
+        "max-len": ["error",150],
+        "no-invalid-this": "off",
+        "valid-jsdoc":"off",
+        "react/no-string-refs": "off"
     }
 }

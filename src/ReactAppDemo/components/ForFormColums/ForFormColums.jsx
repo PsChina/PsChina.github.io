@@ -2,6 +2,8 @@ import React from 'react'
 
 import FormColumn from '../FormColumn/FormColumn.jsx'
 
+import PropTypes from 'prop-types'
+
 const ForFormColums = (props)=>(
     <div>
         { props.data.map( (item)=>{
@@ -20,6 +22,10 @@ const ForFormColums = (props)=>(
 
 ForFormColums.defaultProps = {
     data: [],
+}
+
+ForFormColums.propTypes = {
+    data: PropTypes.array,
 }
 
 export default ForFormColums

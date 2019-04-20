@@ -3,6 +3,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 var path = require('path')
 
+var isDev = process.argv.join().indexOf('development') !== -1
+
 module.exports = {
     entry: './src/entry.js',
     output: {
@@ -11,7 +13,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: '../index.html',
+            filename: isDev ? './index.html' : '../index.html',
             template: './src/index.html',
             minify: {
                 removeComments: true,//清除HTML注释
@@ -45,7 +47,7 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: __dirname,
+        contentBase: path.resolve(__dirname,'./src/'),
         port: 3000,
         open: 'http://localhost:3000'
     }
