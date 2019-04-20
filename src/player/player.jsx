@@ -76,7 +76,9 @@ class Player extends React.Component {
             <div>currentSong:{this.state.currentName}</div>
             <div style={this.state.bg}> <div style={this.state.currentProgress}></div> </div>
             <button onClick={playOrPauseSong.bind(this)}>{this.state.text}</button>
-            <audio autoPlay={true} refs="myAudio" id="myAudio" src="./player/music/不能说的秘密.m4a"></audio>
+            <audio autoPlay={true} refs="myAudio" id="myAudio"
+                src="https://pschina.github.io/src/player/music/%E4%B8%8D%E8%83%BD%E8%AF%B4%E7%9A%84%E7%A7%98%E5%AF%86.m4a">
+            </audio>
         </div>)
     }
 }
