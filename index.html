@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>潘杉杉 · Pan Shanshan — Frontend Engineer</title>
+    <meta name="description" content="11 年前端工程师 · Vue / TypeScript / WebRTC / 低代码 · 现居深圳。Building real-time, multi-platform web for police, finance and meetings." />
+    <meta name="author" content="Pan Shanshan" />
+    <meta name="keywords" content="Pan Shanshan, 潘杉杉, frontend engineer, Vue 3, TypeScript, WebRTC, 深圳前端, portfolio" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="潘杉杉 · Pan Shanshan — Frontend Engineer" />
+    <meta property="og:description" content="11 年前端工程师 · Vue / TypeScript / WebRTC / 低代码。" />
+    <meta property="og:url" content="https://pschina.github.io/" />
+    <meta name="twitter:card" content="summary" />
+
+    <script>
+      // Apply persisted theme synchronously to prevent FOUC.
+      (function () {
+        try {
+          var stored = localStorage.getItem('preferences:theme')
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+          var theme = stored === 'dark' || stored === 'light' ? stored : prefersDark ? 'dark' : 'light'
+          document.documentElement.setAttribute('data-theme', theme)
+          var locale = localStorage.getItem('preferences:locale')
+          if (locale === 'en' || locale === 'zh') {
+            document.documentElement.setAttribute('lang', locale === 'en' ? 'en' : 'zh-CN')
+          }
+        } catch (_) {
+          document.documentElement.setAttribute('data-theme', 'dark')
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

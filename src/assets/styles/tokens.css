@@ -1,0 +1,94 @@
+/* Design tokens — single source of truth for color, type, spacing, motion. */
+
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #0b0d10;
+  --bg-elev: #13161b;
+  --bg-subtle: #0f1216;
+  --fg: #e8eaed;
+  --fg-muted: #9aa0a6;
+  --fg-subtle: #6b7280;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --accent: #5eead4;
+  --accent-strong: #2dd4bf;
+  --accent-soft: rgba(94, 234, 212, 0.12);
+  --noise-opacity: 0.025;
+  --halo-opacity: 0.6;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #fafaf7;
+  --bg-elev: #ffffff;
+  --bg-subtle: #f3f3ee;
+  --fg: #0b0d10;
+  --fg-muted: #5f6368;
+  --fg-subtle: #9aa0a6;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+  --accent: #0d9488;
+  --accent-strong: #115e59;
+  --accent-soft: rgba(13, 148, 136, 0.10);
+  --noise-opacity: 0.04;
+  --halo-opacity: 0;
+}
+
+:root {
+  /* Typography */
+  --font-display: 'Instrument Serif', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, serif;
+  --font-sans: 'Inter Variable', 'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  --fs-hero-cn: clamp(4rem, 11vw, 9rem);
+  --fs-hero-en: clamp(0.875rem, 1.4vw, 1rem);
+  --fs-h2: clamp(2rem, 4vw, 3rem);
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-mono-label: 0.75rem;
+
+  --lh-display: 1.05;
+  --lh-body: 1.65;
+  --lh-tight: 1.35;
+
+  /* Spacing & layout */
+  --container-max: 1200px;
+  --container-pad: clamp(1.25rem, 5vw, 4rem);
+  --section-gap: clamp(5rem, 12vh, 9rem);
+  --grid-gap: clamp(1rem, 2vw, 2rem);
+
+  /* Radii */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-xl: 20px;
+
+  /* Shadows */
+  --shadow-card: 0 1px 0 var(--border), 0 8px 24px -16px rgba(0, 0, 0, 0.4);
+  --shadow-pop: 0 8px 32px -8px var(--accent-soft);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 320ms;
+
+  /* z-index scale */
+  --z-cursor: 9999;
+  --z-toast: 100;
+  --z-header: 50;
+  --z-progress: 60;
+  --z-overlay: 40;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 0ms;
+  }
+}
