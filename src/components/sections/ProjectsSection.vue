@@ -106,15 +106,32 @@ const filtered = computed(() => {
   </section>
 </template>
 
-<style scoped>
-.projects__filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 2rem;
-}
+<style lang="scss" scoped>
+@use 'breakpoints' as bp;
 
-.projects__grid {
-  margin-top: 1rem;
+.projects {
+  &__filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+    // Allow horizontal scroll on small screens if many tags wrap awkwardly.
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include bp.respond-to(tablet) {
+      margin-bottom: 2rem;
+      overflow-x: visible;
+    }
+  }
+
+  &__grid {
+    margin-top: 1rem;
+  }
 }
 </style>

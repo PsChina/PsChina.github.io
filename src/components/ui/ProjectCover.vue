@@ -486,51 +486,51 @@ defineProps<{ variant: ProjectCoverVariant }>()
   </svg>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .cover {
   width: 100%;
   height: 100%;
   display: block;
   background: linear-gradient(135deg, var(--bg-subtle), var(--bg-elev));
   color: var(--fg-subtle);
-}
 
-.cover__g {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.25;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
+  &__g {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.25;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 
-.cover__g rect,
-.cover__g circle:not(.cover__accent-fill) {
-  fill: none;
-}
+    rect,
+    circle:not(.cover__accent-fill) {
+      fill: none;
+    }
 
-.cover__accent {
-  stroke: var(--accent);
-}
+    // Wave: highlight a few bars
+    rect:nth-child(3n) {
+      fill: currentColor;
+    }
+  }
 
-.cover__accent-fill {
-  fill: var(--accent);
-  stroke: var(--accent);
-}
+  &__accent {
+    stroke: var(--accent);
+  }
 
-.cover__hairline {
-  stroke: var(--border-strong);
-}
+  &__accent-fill {
+    fill: var(--accent);
+    stroke: var(--accent);
+  }
 
-.cover__caption {
-  fill: var(--fg-muted);
-  font-family: var(--font-mono);
-  font-size: 8px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
+  &__hairline {
+    stroke: var(--border-strong);
+  }
 
-/* Wave: highlight a few bars */
-.cover__g rect:nth-child(3n) {
-  fill: currentColor;
+  &__caption {
+    fill: var(--fg-muted);
+    font-family: var(--font-mono);
+    font-size: 8px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
 }
 </style>

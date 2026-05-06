@@ -12,7 +12,7 @@ defineProps<{ text: string }>()
   </aside>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .note {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -22,9 +22,9 @@ defineProps<{ text: string }>()
   display: flex;
   gap: 0.5rem;
   max-width: 14rem;
-}
 
-.note__star {
-  color: var(--accent);
+  &__star {
+    color: var(--accent);
+  }
 }
 </style>

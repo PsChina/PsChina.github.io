@@ -40,7 +40,7 @@ defineProps<{ size?: number }>()
   </svg>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .monogram {
   display: block;
   color: var(--fg);

@@ -45,33 +45,38 @@ const { t } = useI18n()
   </button>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use 'breakpoints' as bp;
+
 .theme-toggle {
-  width: 36px;
-  height: 36px;
+  width: var(--tap-min);
+  height: var(--tap-min);
   display: grid;
   place-items: center;
   border-radius: var(--r-sm);
   color: var(--fg-muted);
   transition: color var(--dur-fast), background var(--dur-fast);
-}
 
-.theme-toggle:hover {
-  color: var(--accent);
-  background: var(--accent-soft);
-}
+  @include bp.respond-to(tablet) {
+    width: 36px;
+    height: 36px;
+  }
 
-.theme-toggle__icon {
-  transition: transform var(--dur-slow) var(--ease-out);
-}
+  @include bp.hover {
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
 
-.theme-toggle__icon.is-dark {
-  transform: rotate(-180deg);
-}
+  &__icon {
+    transition: transform var(--dur-slow) var(--ease-out);
 
-@media (prefers-reduced-motion: reduce) {
-  .theme-toggle__icon {
-    transition: none;
+    &.is-dark {
+      transform: rotate(-180deg);
+    }
+
+    @include bp.reduced-motion {
+      transition: none;
+    }
   }
 }
 </style>

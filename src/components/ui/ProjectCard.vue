@@ -72,103 +72,114 @@ const highlights = computed(
   </article>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use 'breakpoints' as bp;
+
 .project {
   padding: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-}
 
-.project__cover {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  background: var(--bg-subtle);
-  border-bottom: 1px solid var(--border);
-  overflow: hidden;
-}
-
-.project__featured {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  color: var(--accent);
-  background: color-mix(in srgb, var(--bg) 80%, transparent);
-  border: 1px solid var(--accent);
-  border-radius: var(--r-sm);
-  padding: 2px 8px;
-  letter-spacing: 0.08em;
-}
-
-.project__body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding: 1.5rem;
-  flex: 1;
-}
-
-.project__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.75rem;
-  align-items: baseline;
-}
-
-.project__title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.5rem;
-  line-height: var(--lh-tight);
-  letter-spacing: -0.01em;
-  color: var(--fg);
-}
-
-.project__desc {
-  color: var(--fg-muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.project__highlights {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  margin-top: 0.25rem;
-}
-
-.project__highlights li {
-  position: relative;
-  padding-left: 1rem;
-  color: var(--fg-muted);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.project__highlights li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-family: var(--font-mono);
-}
-
-.project__tags {
-  margin-top: auto;
-  padding-top: 0.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-/* Featured card spans 2x on bento grid (≥1024px). */
-@media (min-width: 1024px) {
-  .project--span-hero {
-    grid-column: span 2;
-    grid-row: span 2;
+  &__cover {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--bg-subtle);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
   }
-  .project--span-hero .project__title {
-    font-size: 2rem;
+
+  &__featured {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    border: 1px solid var(--accent);
+    border-radius: var(--r-sm);
+    padding: 2px 8px;
+    letter-spacing: 0.08em;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    flex: 1;
+
+    @include bp.respond-to(tablet) {
+      padding: 1.5rem;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.75rem;
+    align-items: baseline;
+  }
+
+  &__title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    line-height: var(--lh-tight);
+    letter-spacing: -0.01em;
+    color: var(--fg);
+
+    @include bp.respond-to(tablet) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__desc {
+    color: var(--fg-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  &__highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-top: 0.25rem;
+
+    li {
+      position: relative;
+      padding-left: 1rem;
+      color: var(--fg-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+
+      &::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-family: var(--font-mono);
+      }
+    }
+  }
+
+  &__tags {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  // Featured card spans 2x on bento grid (≥desktop).
+  &--span-hero {
+    @include bp.respond-to(desktop) {
+      grid-column: span 2;
+      grid-row: span 2;
+
+      .project__title {
+        font-size: 2rem;
+      }
+    }
   }
 }
 </style>

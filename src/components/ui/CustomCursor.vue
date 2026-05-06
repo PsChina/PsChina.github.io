@@ -66,7 +66,7 @@ onBeforeUnmount(() => {
   />
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .cursor {
   position: fixed;
   top: 0;
@@ -88,17 +88,17 @@ onBeforeUnmount(() => {
     margin 120ms var(--ease-out),
     border-color 120ms var(--ease-out);
   will-change: transform;
-}
 
-.cursor.is-visible {
-  opacity: 0.7;
-}
+  &.is-visible {
+    opacity: 0.7;
+  }
 
-.cursor.is-hovering {
-  width: 48px;
-  height: 48px;
-  margin-left: -24px;
-  margin-top: -24px;
-  background: var(--accent-soft);
+  &.is-hovering {
+    width: 48px;
+    height: 48px;
+    margin-left: -24px;
+    margin-top: -24px;
+    background: var(--accent-soft);
+  }
 }
 </style>

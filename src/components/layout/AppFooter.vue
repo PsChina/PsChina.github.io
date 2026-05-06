@@ -30,35 +30,39 @@ const year = new Date().getFullYear()
   </footer>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use 'breakpoints' as bp;
+
 .app-footer {
   border-top: 1px solid var(--border);
-  padding-block: 3rem;
+  padding-block: 2.25rem;
   background: var(--bg-subtle);
-}
 
-.app-footer__inner {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: flex-start;
-}
+  @include bp.respond-to(tablet) {
+    padding-block: 3rem;
+  }
 
-.app-footer__source {
-  color: var(--fg-muted);
-  font-size: 0.95rem;
-}
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
 
-.app-footer__copy {
-  color: var(--fg-subtle);
-}
+    @include bp.respond-to(tablet) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 
-@media (min-width: 768px) {
-  .app-footer__inner {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+  &__source {
+    color: var(--fg-muted);
+    font-size: 0.95rem;
+  }
+
+  &__copy {
+    color: var(--fg-subtle);
   }
 }
 </style>

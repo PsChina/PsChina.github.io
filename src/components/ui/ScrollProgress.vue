@@ -83,11 +83,13 @@ const circumference = 2 * Math.PI * radius
   </button>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use 'breakpoints' as bp;
+
 .scroll-progress {
   position: fixed;
-  right: 1.5rem;
-  bottom: 1.5rem;
+  right: 1rem;
+  bottom: 1rem;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -107,22 +109,23 @@ const circumference = 2 * Math.PI * radius
     color var(--dur-fast);
   z-index: var(--z-progress);
   pointer-events: none;
-}
 
-.scroll-progress.is-visible {
-  opacity: 1;
-  transform: none;
-  pointer-events: auto;
-}
+  // Honor iOS safe area on phones with home indicator.
+  bottom: max(1rem, env(safe-area-inset-bottom));
 
-.scroll-progress:hover {
-  color: var(--accent);
-}
+  @include bp.respond-to(tablet) {
+    right: 1.5rem;
+    bottom: 1.5rem;
+  }
 
-@media (max-width: 640px) {
-  .scroll-progress {
-    right: 1rem;
-    bottom: 1rem;
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  @include bp.hover {
+    color: var(--accent);
   }
 }
 </style>

@@ -71,49 +71,72 @@ async function copyEmail() {
   </section>
 </template>
 
-<style scoped>
-.contact__body {
-  color: var(--fg-muted);
-  font-size: 1.1rem;
-  max-width: 32rem;
-  margin-bottom: 2rem;
-}
+<style lang="scss" scoped>
+@use 'breakpoints' as bp;
 
-.contact__rows {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 38rem;
-}
+.contact {
+  &__body {
+    color: var(--fg-muted);
+    font-size: 1rem;
+    max-width: 32rem;
+    margin-bottom: 1.5rem;
 
-.contact__row {
-  display: grid;
-  grid-template-columns: 6rem 1fr auto;
-  gap: 0.75rem 1rem;
-  align-items: center;
-  padding-block: 1rem;
-  border-bottom: 1px dashed var(--border);
-}
-
-.contact__row-label {
-  color: var(--fg-subtle);
-}
-
-.contact__row-value {
-  color: var(--fg);
-  font-size: 1.05rem;
-}
-
-.contact__row-action {
-  justify-self: end;
-}
-
-@media (max-width: 480px) {
-  .contact__row {
-    grid-template-columns: 1fr;
+    @include bp.respond-to(tablet) {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
   }
-  .contact__row-action {
+
+  &__rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 38rem;
+
+    @include bp.respond-to(tablet) {
+      gap: 1rem;
+    }
+  }
+
+  // Mobile-first stacked layout; promote to grid at tablet+.
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    align-items: start;
+    padding-block: 0.875rem;
+    border-bottom: 1px dashed var(--border);
+
+    @include bp.respond-to(tablet) {
+      grid-template-columns: 6rem 1fr auto;
+      gap: 0.75rem 1rem;
+      align-items: center;
+      padding-block: 1rem;
+    }
+  }
+
+  &__row-label {
+    color: var(--fg-subtle);
+  }
+
+  &__row-value {
+    color: var(--fg);
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+
+    @include bp.respond-to(tablet) {
+      font-size: 1.05rem;
+    }
+  }
+
+  &__row-action {
     justify-self: start;
+    min-height: var(--tap-min);
+
+    @include bp.respond-to(tablet) {
+      justify-self: end;
+      min-height: 0;
+    }
   }
 }
 </style>

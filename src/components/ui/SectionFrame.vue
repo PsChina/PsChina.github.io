@@ -14,48 +14,48 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use 'breakpoints' as bp;
+
 .frame {
   position: absolute;
-  inset: 1.5rem;
+  inset: 0.75rem;
   pointer-events: none;
-}
 
-.frame__corner {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border: 1px solid var(--border-strong);
-}
+  @include bp.respond-to(tablet) {
+    inset: 1.5rem;
+  }
 
-.frame__corner--tl {
-  top: 0;
-  left: 0;
-  border-right: none;
-  border-bottom: none;
-}
-.frame__corner--tr {
-  top: 0;
-  right: 0;
-  border-left: none;
-  border-bottom: none;
-}
-.frame__corner--bl {
-  bottom: 0;
-  left: 0;
-  border-right: none;
-  border-top: none;
-}
-.frame__corner--br {
-  bottom: 0;
-  right: 0;
-  border-left: none;
-  border-top: none;
-}
+  &__corner {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 1px solid var(--border-strong);
 
-@media (max-width: 640px) {
-  .frame {
-    inset: 0.75rem;
+    &--tl {
+      top: 0;
+      left: 0;
+      border-right: none;
+      border-bottom: none;
+    }
+    &--tr {
+      top: 0;
+      right: 0;
+      border-left: none;
+      border-bottom: none;
+    }
+    &--bl {
+      bottom: 0;
+      left: 0;
+      border-right: none;
+      border-top: none;
+    }
+    &--br {
+      bottom: 0;
+      right: 0;
+      border-left: none;
+      border-top: none;
+    }
   }
 }
 </style>

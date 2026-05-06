@@ -4,7 +4,7 @@ import App from './App.vue'
 import { createAppI18n } from './i18n'
 import { usePreferencesStore } from './stores/preferences'
 import { vReveal } from './composables/useReveal'
-import './assets/styles/main.css'
+import './assets/styles/main.scss'
 
 const app = createApp(App)
 const pinia = createPinia()

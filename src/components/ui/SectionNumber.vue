@@ -9,13 +9,13 @@ defineProps<{ value: string }>()
   >{{ value }}</span>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .section-number {
   position: absolute;
   top: -0.25em;
   left: -0.05em;
   font-family: var(--font-mono);
-  font-size: clamp(8rem, 18vw, 16rem);
+  font-size: clamp(5rem, 22vw, 16rem);
   font-weight: 500;
   line-height: 1;
   color: var(--fg);

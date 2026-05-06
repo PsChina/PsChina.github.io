@@ -24,32 +24,40 @@ const { t } = useI18n()
   </button>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use 'breakpoints' as bp;
+
 .lang-toggle {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  height: 36px;
+  min-width: var(--tap-min);
+  height: var(--tap-min);
   padding: 0 10px;
   border-radius: var(--r-sm);
   color: var(--fg-muted);
   transition: color var(--dur-fast), background var(--dur-fast);
-}
 
-.lang-toggle:hover {
-  background: var(--accent-soft);
-  color: var(--fg);
-}
+  @include bp.respond-to(tablet) {
+    min-width: 0;
+    height: 36px;
+  }
 
-.lang-toggle span {
-  transition: color var(--dur-fast);
-}
+  @include bp.hover {
+    background: var(--accent-soft);
+    color: var(--fg);
+  }
 
-.lang-toggle span.is-active {
-  color: var(--accent);
-}
+  span {
+    transition: color var(--dur-fast);
 
-.lang-toggle__sep {
-  color: var(--border-strong);
+    &.is-active {
+      color: var(--accent);
+    }
+  }
+
+  &__sep {
+    color: var(--border-strong);
+  }
 }
 </style>

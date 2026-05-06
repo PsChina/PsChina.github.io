@@ -48,91 +48,108 @@ const isPresent = computed(() => /(present|至今|2026)/i.test(props.entry.end))
   </li>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use 'breakpoints' as bp;
+
 .timeline-item {
   position: relative;
   display: grid;
-  grid-template-columns: 24px 1fr;
-  gap: 1.25rem;
-  padding-bottom: 2.5rem;
-}
+  grid-template-columns: 18px 1fr;
+  gap: 0.875rem;
+  padding-bottom: 2rem;
 
-.timeline-item:last-child {
-  padding-bottom: 0;
-}
+  @include bp.respond-to(tablet) {
+    grid-template-columns: 24px 1fr;
+    gap: 1.25rem;
+    padding-bottom: 2.5rem;
+  }
 
-.timeline-item__marker {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
+  &:last-child {
+    padding-bottom: 0;
 
-.timeline-item__marker::before {
-  content: '';
-  position: absolute;
-  top: 0.6rem;
-  bottom: -2.5rem;
-  width: 1px;
-  background: var(--border-strong);
-}
+    .timeline-item__marker::before {
+      display: none;
+    }
+  }
 
-.timeline-item:last-child .timeline-item__marker::before {
-  display: none;
-}
+  &__marker {
+    position: relative;
+    display: flex;
+    justify-content: center;
 
-.timeline-item__dot {
-  position: relative;
-  display: block;
-  width: 10px;
-  height: 10px;
-  margin-top: 0.4rem;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 1.5px solid var(--accent);
-}
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0.6rem;
+      bottom: -2rem;
+      width: 1px;
+      background: var(--border-strong);
 
-.timeline-item__period {
-  margin-bottom: 0.4rem;
-  color: var(--fg-muted);
-}
+      @include bp.respond-to(tablet) {
+        bottom: -2.5rem;
+      }
+    }
+  }
 
-.timeline-item__period .is-present {
-  color: var(--accent);
-}
+  &__dot {
+    position: relative;
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin-top: 0.4rem;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1.5px solid var(--accent);
+  }
 
-.timeline-item__company {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.5rem;
-  letter-spacing: -0.01em;
-  color: var(--fg);
-  line-height: var(--lh-tight);
-}
+  &__period {
+    margin-bottom: 0.4rem;
+    color: var(--fg-muted);
 
-.timeline-item__role {
-  margin-top: 0.15rem;
-  margin-bottom: 0.65rem;
-  color: var(--fg-muted);
-  font-size: 0.95rem;
-}
+    .is-present {
+      color: var(--accent);
+    }
+  }
 
-.timeline-item__highlights {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
+  &__company {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    line-height: var(--lh-tight);
 
-.timeline-item__highlights li {
-  position: relative;
-  padding-left: 1.1rem;
-  color: var(--fg-muted);
-  line-height: 1.65;
-}
+    @include bp.respond-to(tablet) {
+      font-size: 1.5rem;
+    }
+  }
 
-.timeline-item__highlights li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
+  &__role {
+    margin-top: 0.15rem;
+    margin-bottom: 0.65rem;
+    color: var(--fg-muted);
+    font-size: 0.95rem;
+  }
+
+  &__highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    li {
+      position: relative;
+      padding-left: 1.1rem;
+      color: var(--fg-muted);
+      line-height: 1.65;
+      font-size: 0.95rem;
+
+      &::before {
+        content: '—';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+    }
+  }
 }
 </style>

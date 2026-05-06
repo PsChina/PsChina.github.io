@@ -78,146 +78,169 @@ const { display } = useTypewriter({ phrases })
   </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use 'breakpoints' as bp;
+
 .hero {
   position: relative;
   min-height: min(85vh, 760px);
   display: flex;
   align-items: center;
-  padding-block: clamp(4rem, 12vh, 8rem);
+  padding-block: clamp(3rem, 12vh, 8rem);
   overflow: hidden;
-}
 
-.hero__inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  gap: 2.5rem;
-  position: relative;
-}
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
 
-.hero__copy {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 32rem;
-}
+    @include bp.respond-to(tablet) {
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+    }
+  }
 
-.hero__eyebrow {
-  color: var(--accent);
-}
+  &__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    max-width: 32rem;
 
-.hero__name {
-  font-family: var(--font-display);
-  font-size: var(--fs-hero-cn);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-  font-weight: 400;
-  color: var(--fg);
-}
+    @include bp.respond-to(tablet) {
+      gap: 1rem;
+    }
+  }
 
-.hero__name-en {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 0.25rem;
-}
+  &__eyebrow {
+    color: var(--accent);
+  }
 
-.hero__rule {
-  width: 2.25rem;
-  height: 1px;
-  background: var(--accent);
-}
+  &__name {
+    font-family: var(--font-display);
+    font-size: var(--fs-hero-cn);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+    color: var(--fg);
+  }
 
-.hero__name-en-text {
-  color: var(--fg-muted);
-  letter-spacing: 0.18em;
-  font-size: 0.85rem;
-}
+  &__name-en {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+  }
 
-.hero__role {
-  margin-top: 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  color: var(--fg);
-  display: inline-flex;
-  align-items: baseline;
-  gap: 2px;
-  min-height: 1.5em;
-}
+  &__rule {
+    width: 2.25rem;
+    height: 1px;
+    background: var(--accent);
+  }
 
-.hero__role-text {
-  color: var(--fg);
-}
+  &__name-en-text {
+    color: var(--fg-muted);
+    letter-spacing: 0.18em;
+    font-size: 0.85rem;
+  }
 
-.hero__cursor {
-  color: var(--accent);
-  animation: blink 900ms steps(1) infinite;
+  &__role {
+    margin-top: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--fg);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+    min-height: 1.5em;
+
+    @include bp.respond-to(tablet) {
+      margin-top: 0.75rem;
+      font-size: 1rem;
+    }
+  }
+
+  &__role-text {
+    color: var(--fg);
+  }
+
+  &__cursor {
+    color: var(--accent);
+    animation: blink 900ms steps(1) infinite;
+
+    @include bp.reduced-motion {
+      animation: none;
+    }
+  }
+
+  &__intro {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--fg-subtle);
+    margin-top: -0.15rem;
+
+    @include bp.respond-to(tablet) {
+      font-size: 0.85rem;
+    }
+  }
+
+  &__summary {
+    margin-top: 0.5rem;
+    color: var(--fg-muted);
+    font-size: 1rem;
+    max-width: 28rem;
+
+    @include bp.respond-to(tablet) {
+      font-size: 1.05rem;
+    }
+  }
+
+  &__cta {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+
+    @include bp.respond-to(tablet) {
+      margin-top: 1rem;
+    }
+  }
+
+  // 3D visual hidden on phones to keep load light + give copy room.
+  &__visual {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    display: none;
+
+    @include bp.respond-to(tablet) {
+      display: block;
+      height: 420px;
+    }
+
+    @include bp.respond-to(wide) {
+      height: 480px;
+    }
+  }
+
+  &__available {
+    position: absolute;
+    right: var(--container-pad);
+    bottom: -1.25rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    font-size: 0.7rem;
+
+    @include bp.respond-to(tablet) {
+      bottom: 0;
+      font-size: var(--fs-mono-label);
+    }
+  }
 }
 
 @keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__cursor {
-    animation: none;
-  }
-}
-
-.hero__intro {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  color: var(--fg-subtle);
-  margin-top: -0.15rem;
-}
-
-.hero__summary {
-  margin-top: 0.5rem;
-  color: var(--fg-muted);
-  font-size: 1.05rem;
-  max-width: 28rem;
-}
-
-.hero__cta {
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.hero__visual {
-  position: relative;
-  width: 100%;
-  height: 320px;
-  display: none;
-}
-
-.hero__available {
-  position: absolute;
-  right: var(--container-pad);
-  bottom: 0;
-  color: var(--accent);
-  letter-spacing: 0.08em;
-}
-
-@media (min-width: 768px) {
-  .hero__inner {
-    grid-template-columns: 1.2fr 1fr;
-    gap: 3rem;
-  }
-  .hero__visual {
-    display: block;
-    height: 420px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .hero__visual {
-    height: 480px;
-  }
+  50% { opacity: 0; }
 }
 </style>

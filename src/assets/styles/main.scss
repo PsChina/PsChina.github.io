@@ -1,7 +1,8 @@
-@import './tokens.css';
-@import './reset.css';
+@use 'tokens';
+@use 'reset';
+@use 'breakpoints' as bp;
 
-/* Global noise overlay — kills the plastic feeling of solid backgrounds. */
+// Global ambient layers — noise + halo behind content.
 body::before {
   content: '';
   position: fixed;
@@ -13,7 +14,6 @@ body::before {
   mix-blend-mode: overlay;
 }
 
-/* Subtle ambient halo at top of dark theme. */
 body::after {
   content: '';
   position: fixed;
@@ -31,10 +31,10 @@ a.link {
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
   transition: color var(--dur-fast) var(--ease-out);
-}
 
-a.link:hover {
-  color: var(--accent);
+  @include bp.hover {
+    color: var(--accent);
+  }
 }
 
 .container {
@@ -44,7 +44,7 @@ a.link:hover {
   position: relative;
 }
 
-/* Mono caps label — used as section markers and chip text. */
+// Mono caps label — used as section markers and chip text.
 .mono-label {
   font-family: var(--font-mono);
   font-size: var(--fs-mono-label);
@@ -54,12 +54,14 @@ a.link:hover {
   font-weight: 500;
 }
 
-/* Buttons. */
+// Buttons — mobile defaults are touch-friendly (>= 44px tap target).
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
+  min-height: var(--tap-min);
+  padding: 0.625rem 1.1rem;
   border-radius: var(--r-md);
   border: 1px solid transparent;
   font-family: var(--font-sans);
@@ -74,110 +76,121 @@ a.link:hover {
     box-shadow var(--dur-base) var(--ease-out);
   text-decoration: none;
   white-space: nowrap;
+
+  @include bp.respond-to(tablet) {
+    padding: 0.625rem 1.25rem;
+  }
 }
 
 .btn-primary {
   background: var(--accent);
   color: var(--bg);
   border-color: var(--accent);
-}
 
-.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-pop);
+  @include bp.hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-pop);
+  }
 }
 
 .btn-ghost {
   background: transparent;
   color: var(--fg);
   border-color: var(--border-strong);
+
+  @include bp.hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
 }
 
-.btn-ghost:hover {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-/* Card primitive. */
+// Card primitive.
 .card {
   background: var(--bg-elev);
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
-  padding: 1.5rem;
+  padding: 1.25rem;
   position: relative;
   transition:
     transform var(--dur-base) var(--ease-out),
     border-color var(--dur-fast) var(--ease-out),
     background var(--dur-fast) var(--ease-out);
+
+  @include bp.respond-to(tablet) {
+    padding: 1.5rem;
+  }
+
+  &.is-interactive {
+    @include bp.hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+    }
+  }
 }
 
-.card.is-interactive:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
-}
-
-/* Reveal on scroll — applied via .reveal + IntersectionObserver toggling .is-in. */
+// Reveal on scroll.
 .reveal {
   opacity: 0;
   transform: translateY(8px);
   transition:
     opacity 400ms var(--ease-out),
     transform 400ms var(--ease-out);
-}
 
-.reveal.is-in {
-  opacity: 1;
-  transform: none;
-}
+  &.is-in {
+    opacity: 1;
+    transform: none;
+  }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
+  @include bp.reduced-motion {
     opacity: 1;
     transform: none;
     transition: none;
   }
 }
 
-/* Marquee primitive. */
+// Marquee primitive.
 .marquee {
   display: flex;
   overflow: hidden;
   border-block: 1px solid var(--border);
   -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-          mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
-}
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
 
-.marquee__track {
-  flex: 0 0 auto;
-  display: flex;
-  gap: 2.5rem;
-  padding-block: 0.875rem;
-  padding-inline: 1.25rem;
-  animation: marquee 38s linear infinite;
-  font-family: var(--font-mono);
-  font-size: var(--fs-mono-label);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--fg-muted);
-  white-space: nowrap;
-}
+  &__track {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 1.75rem;
+    padding-block: 0.875rem;
+    padding-inline: 1rem;
+    animation: marquee 38s linear infinite;
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono-label);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    white-space: nowrap;
 
-.marquee:hover .marquee__track {
-  animation-play-state: paused;
-}
+    @include bp.respond-to(tablet) {
+      gap: 2.5rem;
+      padding-inline: 1.25rem;
+    }
+  }
 
-.marquee__track .dot {
-  color: var(--accent);
+  &__track .dot {
+    color: var(--accent);
+  }
+
+  @include bp.hover {
+    .marquee__track {
+      animation-play-state: paused;
+    }
+  }
 }
 
 @keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -186,21 +199,21 @@ a.link:hover {
   }
 }
 
-/* Section base. */
+// Section base.
 .section {
   position: relative;
   padding-block: var(--section-gap);
+
+  + .section {
+    border-top: 1px solid var(--border);
+  }
+
+  &__inner {
+    position: relative;
+  }
 }
 
-.section + .section {
-  border-top: 1px solid var(--border);
-}
-
-.section__inner {
-  position: relative;
-}
-
-/* Tag chip. */
+// Tag chip.
 .chip {
   display: inline-flex;
   align-items: center;
@@ -210,25 +223,29 @@ a.link:hover {
   text-transform: lowercase;
   border: 1px solid var(--border);
   color: var(--fg-muted);
-  padding: 2px 8px;
+  padding: 4px 10px;
   border-radius: var(--r-sm);
   background: transparent;
   cursor: pointer;
   transition: all var(--dur-fast) var(--ease-out);
+
+  @include bp.respond-to(tablet) {
+    padding: 2px 8px;
+  }
+
+  @include bp.hover {
+    color: var(--fg);
+    border-color: var(--border-strong);
+  }
+
+  &.is-active {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
 }
 
-.chip:hover {
-  color: var(--fg);
-  border-color: var(--border-strong);
-}
-
-.chip.is-active {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: var(--accent-soft);
-}
-
-/* Headings. */
+// Headings.
 .h-display {
   font-family: var(--font-display);
   font-size: var(--fs-h2);
@@ -245,19 +262,25 @@ a.link:hover {
   color: var(--fg);
 }
 
-/* Layered z-index for ambient layers vs content. */
+// Layered z-index for ambient layers vs content.
 #app > * {
   position: relative;
   z-index: 2;
 }
 
-/* Hide on mobile utility. */
+// Visibility utilities.
 .desktop-only {
   display: none;
+
+  @include bp.respond-to(desktop) {
+    display: initial;
+  }
 }
 
-@media (min-width: 1024px) {
-  .desktop-only {
-    display: initial;
+.mobile-only {
+  display: initial;
+
+  @include bp.respond-to(desktop) {
+    display: none;
   }
 }

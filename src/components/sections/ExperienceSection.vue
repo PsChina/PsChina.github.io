@@ -33,8 +33,10 @@ const { t } = useI18n()
   </section>
 </template>
 
-<style scoped>
-.experience__list {
-  max-width: 44rem;
+<style lang="scss" scoped>
+.experience {
+  &__list {
+    max-width: 44rem;
+  }
 }
 </style>

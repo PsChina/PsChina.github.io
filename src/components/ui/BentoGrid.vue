@@ -8,22 +8,20 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use 'breakpoints' as bp;
+
 .bento {
   display: grid;
   gap: var(--grid-gap);
   grid-template-columns: 1fr;
   grid-auto-flow: dense;
-}
 
-@media (min-width: 640px) {
-  .bento {
+  @include bp.respond-to(tablet) {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media (min-width: 1024px) {
-  .bento {
+  @include bp.respond-to(desktop) {
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(220px, auto);
   }

@@ -10,6 +10,14 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+        loadPaths: [fileURLToPath(new URL('./src/assets/styles', import.meta.url))],
+      },
+    },
+  },
   build: {
     target: 'es2020',
     cssCodeSplit: true,

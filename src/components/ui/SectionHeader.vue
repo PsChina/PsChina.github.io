@@ -24,26 +24,48 @@ defineProps<{
   </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use 'breakpoints' as bp;
+
 .section-header {
-  margin-bottom: clamp(2.5rem, 6vh, 4rem);
-}
+  margin-bottom: clamp(2rem, 6vh, 4rem);
 
-.section-header__top {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 
-.section-header__rule {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(to right, var(--accent), transparent);
-  max-width: 30%;
-  opacity: 0;
-  transform: scaleX(0.4);
-  transform-origin: left;
-  animation: rule-grow 600ms var(--ease-out) 100ms forwards;
+  &__rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--accent), transparent);
+    max-width: 40%;
+    opacity: 0;
+    transform: scaleX(0.4);
+    transform-origin: left;
+    animation: rule-grow 600ms var(--ease-out) 100ms forwards;
+
+    @include bp.respond-to(tablet) {
+      max-width: 30%;
+    }
+
+    @include bp.reduced-motion {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  &__eyebrow {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 4vw, 2.25rem);
+    margin-top: 0.75rem;
+    color: var(--fg);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: var(--lh-tight);
+  }
 }
 
 .reveal.is-in .section-header__rule {
@@ -51,32 +73,8 @@ defineProps<{
   transform: none;
 }
 
-.section-header__eyebrow {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  margin-top: 0.75rem;
-  color: var(--fg);
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: var(--lh-tight);
-}
-
 @keyframes rule-grow {
-  from {
-    opacity: 0;
-    transform: scaleX(0.4);
-  }
-  to {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .section-header__rule {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
+  from { opacity: 0; transform: scaleX(0.4); }
+  to   { opacity: 1; transform: scaleX(1); }
 }
 </style>

@@ -42,7 +42,7 @@ watch(
   <CustomCursor />
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 main {
   display: block;
 }

@@ -25,6 +25,6 @@ defineProps<{ items: string[] }>()
   </div>
 </template>
 
-<style scoped>
-/* Inherits .marquee styles from main.css. */
+<style lang="scss" scoped>
+// Inherits .marquee styles from main.scss.
 </style>

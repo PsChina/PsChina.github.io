@@ -12,7 +12,9 @@ defineProps<{ label: string }>()
   </span>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use 'breakpoints' as bp;
+
 .skill {
   display: inline-flex;
   align-items: center;
@@ -24,16 +26,16 @@ defineProps<{ label: string }>()
   background: var(--bg-elev);
   color: var(--fg);
   transition: border-color var(--dur-fast), color var(--dur-fast);
-}
 
-.skill:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
+  @include bp.hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
 
-.skill__dot {
-  font-family: var(--font-mono);
-  color: var(--accent);
-  font-size: 0.75rem;
+  &__dot {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 0.75rem;
+  }
 }
 </style>
