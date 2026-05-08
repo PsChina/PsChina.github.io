@@ -1,6 +1,6 @@
 # PsChina.github.io
 
-潘杉杉（Pan Shanshan）的个人主页 —— 11 年前端工程师作品集，部署于 [pschina.github.io](https://pschina.github.io)。
+潘杉杉（Pan Shanshan）的个人主页 —— 11 年前端工程师作品集与 Web 产品合作入口，部署于 [pschina.github.io](https://pschina.github.io)。
 
 技术栈：**Vue 3 + Vite 5 + TypeScript（strict）**，Pinia、vue-i18n、three.js（懒加载）、Vitest。
 设计：原生 CSS + design tokens（无 UI 库），中英双语切换，深浅主题，响应式 + 编辑设计风格的版面。
