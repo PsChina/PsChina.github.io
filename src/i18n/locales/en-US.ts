@@ -8,7 +8,7 @@ export default {
   },
   hero: {
     eyebrow: 'Frontend Engineer · 11 yrs',
-    intro: 'Shenzhen · real-time A/V · cross-platform · low-code',
+    intro: 'Shenzhen · websites · dashboards · SaaS MVPs',
     cta: {
       work: 'View work',
       contact: 'Get in touch',
@@ -23,7 +23,7 @@ export default {
   },
   about: {
     eyebrow: 'What I do',
-    margin: 'Resume spine — Vue 2/3 dual components, unified A/V API, low-code platform',
+    margin: 'Spine — shippable, maintainable, handoff-ready',
   },
   skills: {
     eyebrow: 'Tools of the trade',
@@ -42,7 +42,7 @@ export default {
   },
   contact: {
     eyebrow: 'Get in touch',
-    body: 'Email or GitHub work best. Happy to share a CV on request.',
+    body: 'Have a website, dashboard, internal tool or SaaS MVP that needs a clean first version? Email works best. Weekend-sized, well-scoped projects are welcome.',
     emailLabel: 'Email',
     githubLabel: 'GitHub',
     copyEmail: 'Copy email',

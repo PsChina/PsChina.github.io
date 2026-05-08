@@ -10,17 +10,17 @@ export const profile: Profile = {
     en: 'Shenzhen',
   },
   summary: {
-    zh: '11 年前端工程师。专注实时音视频、跨端协作、低代码平台与可视化指挥调度系统的工程落地。',
-    en: '11 years building real-time, multi-platform web for police dispatch, finance and meeting products.',
+    zh: '11 年前端工程师。把想法做成稳定、好用的 Web 产品 —— 官网、管理后台、数据看板与轻量 SaaS MVP。',
+    en: 'Frontend engineer with 11 years of experience turning ideas into polished web products — websites, dashboards and lightweight SaaS MVPs.',
   },
   taglineRoles: [
     { zh: '前端工程师', en: 'Frontend Engineer' },
-    { zh: '音视频通信', en: 'Real-time Audio / Video' },
-    { zh: '低代码平台', en: 'Low-code Platform' },
-    { zh: 'WebRTC · WebSocket', en: 'WebRTC · WebSocket' },
-    { zh: '可视化与 three.js', en: 'Visualization · three.js' },
+    { zh: '产品型 Web 开发', en: 'Product-minded Web Development' },
+    { zh: '官网与落地页', en: 'Websites & Landing Pages' },
+    { zh: '管理后台与数据看板', en: 'Dashboards & Internal Tools' },
+    { zh: '轻量 SaaS MVP', en: 'Lightweight SaaS MVPs' },
   ],
-  available: '~ available 2026 →',
+  available: '~ weekend projects open →',
   email: 'panshanzxcv.love@163.com',
   github: 'PsChina',
   githubUrl: 'https://github.com/PsChina',
@@ -28,35 +28,35 @@ export const profile: Profile = {
 
 export const aboutPillars: AboutPillar[] = [
   {
-    id: 'fundamentals',
-    title: { zh: '基础扎实', en: 'Strong Fundamentals' },
+    id: 'websites',
+    title: { zh: '官网与落地页', en: 'Websites & Landing Pages' },
     body: {
-      zh: '深入理解 JavaScript 核心 —— 事件循环、原型链、闭包、ES6+；TypeScript、HTML5、CSS3、Sass / Less。',
-      en: 'Deep grasp of JS core — event loop, prototype chain, closures, ES6+. TypeScript, HTML5, CSS3, Sass / Less.',
+      zh: '从一份 Figma 或一段想法开始，交付加载快、移动端稳、SEO 友好的官网或产品落地页。包含基础埋点与可维护的内容结构。',
+      en: 'From a Figma file or a rough idea — fast-loading, mobile-stable, SEO-friendly sites with basic analytics and a content structure you can keep editing.',
     },
   },
   {
-    id: 'frameworks',
-    title: { zh: '框架与工程化', en: 'Frameworks & Tooling' },
+    id: 'dashboards',
+    title: { zh: '后台与数据看板', en: 'Dashboards & Admin Tools' },
     body: {
-      zh: '精通 Vue 3（响应式 / 编译渲染原理）、React、Pinia / Vuex；熟练 Vite、Webpack、ESLint、Git。',
-      en: 'Vue 3 (reactivity & compiler internals), React, Pinia / Vuex. Vite, Webpack, ESLint, Git in daily use.',
+      zh: '面向运营、客服、内部团队的管理后台与数据看板。表格、表单、权限、图表四件套，做到信息密度高但仍然好读。',
+      en: 'Admin panels and analytics dashboards for ops, support and internal teams. Tables, forms, roles and charts — dense, but still easy to read.',
     },
   },
   {
-    id: 'cross-platform',
-    title: { zh: '跨端与扩展', en: 'Cross-platform' },
+    id: 'saas-mvp',
+    title: { zh: '轻量 SaaS MVP', en: 'Lightweight SaaS MVPs' },
     body: {
-      zh: 'iOS Native（Objective-C / Swift）开发经验，熟悉小程序生态（Taro），WebRTC、WebSocket、three.js 实战。',
-      en: 'iOS native (Obj-C / Swift) experience, Taro mini-programs, WebRTC / WebSocket / three.js in production.',
+      zh: '帮独立开发者和早期团队把第一版 SaaS 跑起来：登录、付费、核心流程、必要的可观测性。先能上线，再谈打磨。',
+      en: 'Helping solo founders and early teams ship a first SaaS version — auth, billing, core flow and just enough observability. Live first, polish later.',
     },
   },
   {
-    id: 'architecture',
-    title: { zh: '算法与架构', en: 'Algorithms & Architecture' },
+    id: 'complex-systems',
+    title: { zh: '复杂前端系统', en: 'Complex Frontend Systems' },
     body: {
-      zh: '了解常见算法与数据结构，从零搭建 Web 低代码平台；抽象跨厂商音视频统一 API，支持配置化切换。',
-      en: 'Built a Web low-code platform from scratch; abstracted multi-vendor audio/video into a unified, swappable API.',
+      zh: '低代码平台、实时音视频、three.js 可视化与指挥调度类系统。十一年的边界 case 沉淀，落地可控、不踩同样的坑。',
+      en: 'Low-code platforms, real-time A/V, three.js visualization and dispatch-style systems. Eleven years of edge cases — predictable delivery, no repeat pitfalls.',
     },
   },
 ]

@@ -88,7 +88,7 @@ a.link {
   border-color: var(--accent);
 
   @include bp.hover {
-    transform: translateY(-1px);
+    transform: translateY(-0.5px);
     box-shadow: var(--shadow-pop);
   }
 }
@@ -123,7 +123,7 @@ a.link {
 
   &.is-interactive {
     @include bp.hover {
-      transform: translateY(-2px);
+      transform: translateY(-1px);
       border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
     }
   }

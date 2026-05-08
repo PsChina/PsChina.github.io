@@ -28,11 +28,11 @@ const { locale } = storeToRefs(usePreferencesStore())
       <div class="about__grid">
         <div class="about__pillars">
           <article
-            v-for="pillar in aboutPillars"
+            v-for="(pillar, idx) in aboutPillars"
             :key="pillar.id"
             class="card pillar"
           >
-            <span class="pillar__num mono-label">— {{ pillar.id }}</span>
+            <span class="pillar__num mono-label">— {{ String(idx + 1).padStart(2, '0') }}</span>
             <h3 class="pillar__title">{{ pillar.title[locale] }}</h3>
             <p class="pillar__body">{{ pillar.body[locale] }}</p>
           </article>

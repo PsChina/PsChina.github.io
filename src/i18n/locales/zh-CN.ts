@@ -8,7 +8,7 @@ export default {
   },
   hero: {
     eyebrow: '前端工程师 · 11 年',
-    intro: '深圳 · 实时音视频 · 跨端协作 · 低代码',
+    intro: '深圳 · 官网 · 后台 · SaaS MVP',
     cta: {
       work: '查看作品',
       contact: '聊一聊',
@@ -23,7 +23,7 @@ export default {
   },
   about: {
     eyebrow: '我能做什么',
-    margin: '简历主轴：Vue 2 / 3 跨版本组件、统一音视频 API、低代码平台',
+    margin: '主轴：可上线、可维护、可交接',
   },
   skills: {
     eyebrow: '工具与技术栈',
@@ -42,7 +42,7 @@ export default {
   },
   contact: {
     eyebrow: '联系方式',
-    body: '欢迎邮件或 GitHub。简历可来信索取。',
+    body: '如果你有一个小型 Web 产品、官网、后台工具或 SaaS MVP 想先做出第一版，欢迎邮件联系。适合清晰边界、可周末推进的项目。',
     emailLabel: '电邮',
     githubLabel: 'GitHub',
     copyEmail: '复制邮箱',
