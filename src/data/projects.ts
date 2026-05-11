@@ -120,6 +120,59 @@ export const projects: Project[] = [
     tags: ['ios', 'objective-c', 'vue2'],
     cover: 'prism',
   },
+  {
+    id: 'deepseek-as-subagent',
+    title: { zh: 'DeepSeek as Sub-Agent (MCP)', en: 'DeepSeek as Sub-Agent (MCP)' },
+    role: { zh: '独立开发', en: 'Solo build' },
+    period: '2026.01 — Present',
+    desc: {
+      zh: '将 DeepSeek 封装为真正的 MCP sub-agent（非 Q&A 端点），运行独立沙盒 Read/Edit/Bash 循环，可接入 Claude Code、Codex、Cursor、Cline 等任意 MCP 兼容编码 agent，端到端 token 节省。',
+      en: 'Wraps DeepSeek as a real MCP sub-agent (not a Q&A endpoint) with sandboxed Read/Edit/Bash loop. Plugs into any MCP-compatible coding agent — Claude Code, Codex, Cursor, Cline — for end-to-end token savings.',
+    },
+    highlights: [
+      { zh: 'MCP 协议实现，支持工具代理与流式响应', en: 'MCP protocol implementation with tool proxy & streaming' },
+      { zh: '独立沙盒读写循环，隔离主 agent 上下文', en: 'Sandboxed read/write loop, isolated from main agent context' },
+      { zh: '兼容多个主流 AI 编码客户端', en: 'Compatible with major AI coding clients' },
+    ],
+    tags: ['python', 'mcp', 'ai-agent', 'llm'],
+    cover: 'orbit',
+  },
+  {
+    id: 'easy-filter',
+    title: { zh: 'Easy-Filter', en: 'Easy-Filter' },
+    role: { zh: '独立开发', en: 'Solo build' },
+    period: '2019.01',
+    desc: {
+      zh: '一个简洁的 Vue 过滤器插件，支持在 Vue 模板中注册和使用自定义 filter，兼容 Vue 2 / 3。GitHub ⭐15。',
+      en: 'A simple Vue filter plugin for registering and using custom filters in Vue templates. Compatible with Vue 2 / 3. GitHub ⭐15.',
+    },
+    tags: ['vue3', 'vue2', 'javascript', 'plugin'],
+    cover: 'prism',
+  },
+  {
+    id: 'convert-excel-js',
+    title: { zh: 'Convert-Excel-JS', en: 'Convert-Excel-JS' },
+    role: { zh: '独立开发', en: 'Solo build' },
+    period: '2019.07',
+    desc: {
+      zh: '应用程序国际化助手，在 JSON 与 Excel 之间完成文件类型转换，帮助开发团队用 Excel 管理多语言翻译词条。GitHub ⭐8。',
+      en: 'An i18n helper that converts files between JSON and Excel, helping teams manage multilingual translation entries with spreadsheets. GitHub ⭐8.',
+    },
+    tags: ['javascript', 'i18n', 'excel', 'json'],
+    cover: 'grid',
+  },
+  {
+    id: 'react-native-bus',
+    title: { zh: 'React Native Bus', en: 'React Native Bus' },
+    role: { zh: '独立开发', en: 'Solo build' },
+    period: '2026.01',
+    desc: {
+      zh: 'React Native 跨组件事件总线库，提供轻量级的发布-订阅机制，支持事件命名空间与类型安全。',
+      en: 'A lightweight publish-subscribe event bus for React Native, with namespace support and type-safe event handling.',
+    },
+    tags: ['react-native', 'typescript', 'event-bus'],
+    cover: 'panels',
+  },
 ]
 
 /** Aggregated tag list, in stable order for the chip filter. */
