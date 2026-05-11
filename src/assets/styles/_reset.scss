@@ -34,7 +34,6 @@ body {
   font-size: var(--fs-body);
   background: var(--bg);
   color: var(--fg);
-  overflow-x: hidden;
   // Avoid iOS tap-highlight color flashing on touch.
   -webkit-tap-highlight-color: transparent;
 }
