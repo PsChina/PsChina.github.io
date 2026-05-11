@@ -19,9 +19,13 @@ const highlights = computed(
 </script>
 
 <template>
-  <article
+  <component
+    :is="project.url ? 'a' : 'article'"
+    :href="project.url"
+    target="_blank"
+    rel="noopener"
     class="project card is-interactive"
-    :class="[`project--span-${project.featured ? 'hero' : 'normal'}`]"
+    :class="[`project--span-${project.featured ? 'hero' : 'normal'}`, { 'project--linked': project.url }]"
   >
     <div class="project__cover">
       <ProjectCover :variant="project.cover" />
@@ -69,7 +73,7 @@ const highlights = computed(
         </li>
       </ul>
     </div>
-  </article>
+  </component>
 </template>
 
 <style lang="scss" scoped>
@@ -178,6 +182,25 @@ const highlights = computed(
 
       .project__title {
         font-size: 2rem;
+      }
+    }
+  }
+
+  &--linked {
+    text-decoration: none;
+    color: inherit;
+
+    .project__title::after {
+      content: ' ↗';
+      font-size: 0.7em;
+      opacity: 0;
+      transition: opacity var(--dur-fast) var(--ease-out);
+      color: var(--accent);
+    }
+
+    @include bp.hover {
+      .project__title::after {
+        opacity: 1;
       }
     }
   }

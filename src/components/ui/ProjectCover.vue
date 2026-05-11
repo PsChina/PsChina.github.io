@@ -483,6 +483,240 @@ defineProps<{ variant: ProjectCoverVariant }>()
         rx="2"
       />
     </g>
+
+    <!-- hex: interconnected nodes for AI agent -->
+    <g
+      v-else-if="variant === 'hex'"
+      class="cover__g"
+    >
+      <polygon
+        v-for="h in 3"
+        :key="`h-${h}`"
+        :points="[
+          [50 + (h-1)*40, 30],
+          [65 + (h-1)*40, 38],
+          [65 + (h-1)*40, 54],
+          [50 + (h-1)*40, 62],
+          [35 + (h-1)*40, 54],
+          [35 + (h-1)*40, 38],
+        ].map(p => p.join(',')).join(' ')"
+      />
+      <polygon
+        points="70,46 85,54 85,70 70,78 55,70 55,54"
+        class="cover__accent-fill"
+        fill-opacity="0.15"
+      />
+      <line
+        x1="80"
+        y1="46"
+        x2="110"
+        y2="46"
+      />
+      <line
+        x1="80"
+        y1="62"
+        x2="155"
+        y2="62"
+        class="cover__accent"
+      />
+      <circle
+        cx="70"
+        cy="46"
+        r="2.5"
+        class="cover__accent-fill"
+      />
+      <circle
+        cx="135"
+        cy="46"
+        r="2.5"
+      />
+      <circle
+        cx="180"
+        cy="62"
+        r="2.5"
+        class="cover__accent-fill"
+      />
+    </g>
+
+    <!-- funnel: layered filter for easy-filter -->
+    <g
+      v-else-if="variant === 'funnel'"
+      class="cover__g"
+    >
+      <path
+        d="M30 22 L170 22 L110 65 L110 95 L90 100 L90 65 Z"
+      />
+      <line
+        x1="70"
+        y1="22"
+        x2="50"
+        y2="95"
+        class="cover__hairline"
+      />
+      <line
+        x1="130"
+        y1="22"
+        x2="150"
+        y2="95"
+        class="cover__hairline"
+      />
+      <circle
+        cx="100"
+        cy="48"
+        r="4"
+        class="cover__accent"
+      />
+      <circle
+        cx="100"
+        cy="48"
+        r="1.5"
+        class="cover__accent-fill"
+      />
+      <line
+        x1="70"
+        y1="22"
+        x2="130"
+        y2="22"
+        class="cover__accent"
+        stroke-width="2.5"
+      />
+    </g>
+
+    <!-- cells: spreadsheet grid for convert-excel-js -->
+    <g
+      v-else-if="variant === 'cells'"
+      class="cover__g"
+    >
+      <g
+        v-for="r in 5"
+        :key="`er${r}`"
+      >
+        <g
+          v-for="c in 8"
+          :key="`ec${c}`"
+        >
+          <rect
+            :x="8 + (c - 1) * 24"
+            :y="10 + (r - 1) * 20"
+            width="22"
+            height="18"
+            rx="1"
+          />
+        </g>
+      </g>
+      <rect
+        x="8"
+        y="10"
+        width="22"
+        height="18"
+        rx="1"
+        class="cover__accent-fill"
+      />
+      <path
+        d="M55 30 L72 22 M55 30 L72 38"
+        class="cover__accent"
+        stroke-width="1.8"
+      />
+      <text
+        x="80"
+        y="33"
+        class="cover__caption"
+      >.json</text>
+    </g>
+
+    <!-- bus: event lines for react-native-bus -->
+    <g
+      v-else-if="variant === 'bus'"
+      class="cover__g"
+    >
+      <line
+        x1="10"
+        y1="50"
+        x2="190"
+        y2="50"
+        stroke-width="2"
+        class="cover__accent"
+      />
+      <line
+        x1="10"
+        y1="72"
+        x2="190"
+        y2="72"
+      />
+      <circle
+        cx="30"
+        cy="50"
+        r="3"
+        class="cover__accent-fill"
+      />
+      <circle
+        cx="80"
+        cy="50"
+        r="3"
+        class="cover__accent-fill"
+      />
+      <circle
+        cx="130"
+        cy="50"
+        r="3"
+      />
+      <circle
+        cx="170"
+        cy="50"
+        r="3"
+        class="cover__accent-fill"
+      />
+      <line
+        x1="30"
+        y1="50"
+        x2="30"
+        y2="72"
+        class="cover__hairline"
+      />
+      <line
+        x1="80"
+        y1="50"
+        x2="80"
+        y2="72"
+        class="cover__hairline"
+      />
+      <line
+        x1="130"
+        y1="50"
+        x2="130"
+        y2="72"
+        class="cover__hairline"
+      />
+      <line
+        x1="170"
+        y1="50"
+        x2="170"
+        y2="94"
+        class="cover__hairline"
+      />
+      <rect
+        x="157"
+        y="76"
+        width="26"
+        height="18"
+        rx="3"
+      />
+      <rect
+        x="22"
+        y="76"
+        width="16"
+        height="16"
+        rx="2"
+      />
+      <rect
+        x="72"
+        y="76"
+        width="16"
+        height="16"
+        rx="2"
+        class="cover__accent"
+      />
+    </g>
   </svg>
 </template>
 

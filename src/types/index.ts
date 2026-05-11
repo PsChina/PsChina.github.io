@@ -46,6 +46,8 @@ export interface Project {
   featured?: boolean
   /** SVG cover identifier — maps to ProjectCover variant */
   cover: ProjectCoverVariant
+  /** Optional external link (e.g. GitHub repo) */
+  url?: string
 }
 
 export type ProjectCoverVariant =
@@ -58,6 +60,10 @@ export type ProjectCoverVariant =
   | 'orbit'
   | 'panels'
   | 'mosaic'
+  | 'hex'
+  | 'funnel'
+  | 'cells'
+  | 'bus'
 
 export interface AboutPillar {
   id: string

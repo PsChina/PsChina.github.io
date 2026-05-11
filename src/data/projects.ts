@@ -135,7 +135,8 @@ export const projects: Project[] = [
       { zh: '兼容多个主流 AI 编码客户端', en: 'Compatible with major AI coding clients' },
     ],
     tags: ['python', 'mcp', 'ai-agent', 'llm'],
-    cover: 'orbit',
+    cover: 'hex',
+    url: 'https://github.com/PsChina/deepseek-as-subagent',
   },
   {
     id: 'easy-filter',
@@ -147,7 +148,8 @@ export const projects: Project[] = [
       en: 'A simple Vue filter plugin for registering and using custom filters in Vue templates. Compatible with Vue 2 / 3. GitHub ⭐15.',
     },
     tags: ['vue3', 'vue2', 'javascript', 'plugin'],
-    cover: 'prism',
+    cover: 'funnel',
+    url: 'https://github.com/PsChina/easy-filter',
   },
   {
     id: 'convert-excel-js',
@@ -159,7 +161,8 @@ export const projects: Project[] = [
       en: 'An i18n helper that converts files between JSON and Excel, helping teams manage multilingual translation entries with spreadsheets. GitHub ⭐8.',
     },
     tags: ['javascript', 'i18n', 'excel', 'json'],
-    cover: 'grid',
+    cover: 'cells',
+    url: 'https://github.com/PsChina/convert-excel-js',
   },
   {
     id: 'react-native-bus',
@@ -171,7 +174,8 @@ export const projects: Project[] = [
       en: 'A lightweight publish-subscribe event bus for React Native, with namespace support and type-safe event handling.',
     },
     tags: ['react-native', 'typescript', 'event-bus'],
-    cover: 'panels',
+    cover: 'bus',
+    url: 'https://github.com/PsChina/react-native-bus',
   },
 ]
 
